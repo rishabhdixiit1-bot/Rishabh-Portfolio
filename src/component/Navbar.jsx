@@ -30,7 +30,7 @@ export default function Navbar() {
           className="cursor-pointer flex items-center gap-2"
         >
           <img
-            src="/src/assets/RD Logo-02.svg"
+            src="/assets/RD Logo-02.svg"
             alt="Rishabh Logo"
             className="w-25 h-10 object-contain"
           />
