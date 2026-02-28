@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+
+.swiper-button-next, .swiper-button-prev {
+  filter: drop-shadow(0 0 10px #00d2ff);
+  transform: scale(0.7);
+}
+
+.title{
+
+font-weight: bold;
+    }
