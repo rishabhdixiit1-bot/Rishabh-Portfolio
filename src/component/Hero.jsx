@@ -54,7 +54,7 @@ export default function Hero() {
             <div className="absolute inset-0 bg-[#00d2ff] rounded-full blur-2xl opacity-20 group-hover:opacity-40 transition-duration-500" />
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-[#00d2ff] overflow-hidden shadow-[0_0_30px_rgba(0,210,255,0.3)]">
               <img 
-                src='/src/assets/RISHABH.jpeg'
+                src='/assets/RISHABH.jpeg'
                 alt="Rishabh Dixit" 
                 className="w-full h-auto object-cover"
               />
