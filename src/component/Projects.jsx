@@ -8,7 +8,7 @@ import "swiper/css/navigation";
 
 const projects = [
   {
-    video: "/1st.mp4",
+    video: "/portfolio-video-1.mp4",
   },
 ];
 const Projects = () => {
