@@ -64,7 +64,7 @@ const experienceData = [
 
 export default function Experience() {
   return (
-    <section className="relative py-32 bg-[#050c0f] text-white px-6 overflow-hidden">
+    <section id="experience" className="relative py-32 bg-[#050c0f] text-white px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto relative z-10">
 
         {/* Heading */}

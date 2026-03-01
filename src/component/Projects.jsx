@@ -8,7 +8,7 @@ import "swiper/css/navigation";
 
 const projects = [
   {
-    video: "/portfolio-video-1.mp4",
+    video: "https://res.cloudinary.com/demo/video/upload/dog.mp4",
   },
 ];
 const Projects = () => {
@@ -55,7 +55,7 @@ const Projects = () => {
   };
 
   return (
-    <section className="relative py-24 bg-[#050c0f] overflow-hidden">
+    <section id="projects" className="relative py-24 bg-[#050c0f] overflow-hidden">
       <div className="relative max-w-[950px] mx-auto z-10">
         <Swiper
           modules={[EffectCoverflow, Navigation, Autoplay]}
