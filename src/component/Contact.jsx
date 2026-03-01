@@ -119,7 +119,12 @@ export default function Contact() {
               ></iframe>
             </div>
 
-            <button className="mt-8 w-full py-3 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-semibold hover:scale-105 transition duration-300 shadow-[0_0_20px_rgba(0,255,200,0.4)]">
+            <button onClick={() =>
+    window.open(
+      "https://www.google.com/maps/place/Chandigarh",
+      "_blank"
+    )
+  } className="mt-8 w-full py-3 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-semibold hover:scale-105 transition duration-300 shadow-[0_0_20px_rgba(0,255,200,0.4)]">
               Let’s Work Together
             </button>
           </motion.div>

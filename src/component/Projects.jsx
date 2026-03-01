@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Navigation, Autoplay } from "swiper/modules";
 
@@ -21,8 +21,12 @@ const projects = [
 
 const Projects = () => {
   const videoRefs = useRef([]);
+  const swiperRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const handleSlideChange = (swiper) => {
+    setActiveIndex(swiper.realIndex);
+
     videoRefs.current.forEach((video, index) => {
       if (!video) return;
 
@@ -38,17 +42,35 @@ const Projects = () => {
     });
   };
 
-  const handleVideoClick = (index) => {
+  const handleVideoClick = async (index) => {
     const video = videoRefs.current[index];
     if (!video) return;
 
+    // Stop slider autoplay
+    swiperRef.current?.autoplay.stop();
+
     video.muted = false;
     video.controls = true;
+
+    try {
+      await video.requestFullscreen();
+    } catch (err) {}
+
     video.play();
 
-    if (video.requestFullscreen) {
-      video.requestFullscreen();
-    }
+    // When fullscreen exits
+    const exitHandler = () => {
+      if (!document.fullscreenElement) {
+        video.pause();
+        video.currentTime = 0;
+        video.muted = true;
+        video.controls = false;
+        swiperRef.current?.autoplay.start();
+        document.removeEventListener("fullscreenchange", exitHandler);
+      }
+    };
+
+    document.addEventListener("fullscreenchange", exitHandler);
   };
 
   return (
@@ -58,7 +80,6 @@ const Projects = () => {
     >
       <div className="max-w-7xl mx-auto px-6">
 
-        {/* Section Heading */}
         <h2 className="text-5xl font-bold uppercase tracking-wider
             bg-gradient-to-r from-cyan-400 to-blue-500
             bg-clip-text text-transparent text-center mb-20">
@@ -74,8 +95,11 @@ const Projects = () => {
           spaceBetween={30}
           autoplay={{ delay: 2500, disableOnInteraction: false }}
           navigation
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper;
+            handleSlideChange(swiper);
+          }}
           onSlideChange={handleSlideChange}
-          onSwiper={(swiper) => handleSlideChange(swiper)}
           breakpoints={{
             0: { slidesPerView: 1 },
             640: { slidesPerView: 2 },
@@ -93,16 +117,18 @@ const Projects = () => {
         >
           {projects.map((p, i) => (
             <SwiperSlide key={p.id} className="flex justify-center">
-              <div className="relative w-full  max-w-[350px] aspect-[9/16] rounded-xl overflow-hidden bg-black border border-[#1f2937] shadow-lg">
+              <div className="relative w-full max-w-[350px] aspect-[9/16] rounded-xl overflow-hidden bg-black border border-[#1f2937] shadow-lg">
                 <video
                   ref={(el) => (videoRefs.current[i] = el)}
                   src={p.video}
                   muted
                   loop
                   playsInline
-                  autoPlay
+                  preload="metadata"
                   onClick={() => handleVideoClick(i)}
-                  className="w-full h-full object-cover cursor-pointer"
+                  className={`w-full h-full object-cover cursor-pointer transition-all duration-300 ${
+                    activeIndex === i ? "scale-105" : "scale-95 opacity-70"
+                  }`}
                 />
               </div>
             </SwiperSlide>
