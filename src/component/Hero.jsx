@@ -81,6 +81,12 @@ export default function Hero() {
           {/* Hire Me & Resume Buttons */}
           <div className="mt-8 flex gap-4">
             <motion.button
+             onClick={() =>
+            window.open(
+              "https://wa.me/918689050229?text=Hi%20Rishabh,%20I%20would%20like%20to%20know%20more%20about%20this.",
+              "_blank"
+            )
+          }
               whileHover={{ scale: 1.05, boxShadow: "0 0 20px #00d2ff" }}
               className="px-8 py-3 bg-[#00d2ff] text-black font-black text-xs rounded-full uppercase tracking-widest"
             >
@@ -109,7 +115,12 @@ export default function Hero() {
               <FaLinkedin className="text-4xl text-blue-500 drop-shadow-[0_0_10px_rgba(59,130,246,0.6)] hover:scale-125 transition" />
             </a>
             {/* WhatsApp */}
-            <a href="https://wa.me/8689050229" target="_blank" rel="noreferrer">
+            <a  onClick={() =>
+            window.open(
+              "https://wa.me/918689050229?text=Hi%20Rishabh,%20I%20would%20like%20to%20know%20more%20about%20this.",
+              "_blank"
+            )
+          }>
               <FaWhatsapp className="text-4xl text-green-500 drop-shadow-[0_0_10px_rgba(34,197,94,0.6)] hover:scale-125 transition" />
             </a>
           </div>

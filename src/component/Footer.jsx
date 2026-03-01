@@ -36,7 +36,12 @@ export default function Footer() {
               <FaLinkedin />
             </a>
 
-            <a href="https://wa.me/8689050229" target="_blank" rel="noreferrer" className="footer-icon text-green-500">
+            <a  onClick={() =>
+            window.open(
+              "https://wa.me/918689050229?text=Hi%20Rishabh,%20I%20would%20like%20to%20know%20more%20about%20this.",
+              "_blank"
+            )
+          } className="footer-icon text-green-500">
               <FaWhatsapp />
             </a>
           </div>
@@ -73,7 +78,14 @@ export default function Footer() {
             Available for freelance projects and collaborations.
           </p>
 
-          <button className="w-full sm:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-semibold hover:scale-105 transition duration-300 shadow-[0_0_20px_rgba(0,255,200,0.4)]">
+          <button 
+           onClick={() =>
+            window.open(
+              "https://wa.me/918689050229?text=Hi%20Rishabh,%20I%20would%20like%20to%20know%20more%20about%20this.",
+              "_blank"
+            )
+          }
+          className="w-full sm:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-semibold hover:scale-105 transition duration-300 shadow-[0_0_20px_rgba(0,255,200,0.4)]">
             Hire Me
           </button>
         </div>

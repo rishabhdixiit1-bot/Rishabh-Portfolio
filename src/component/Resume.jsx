@@ -33,7 +33,7 @@ export default function Resume() {
 
       {/* Download Button */}
       <motion.a
-        href="/resume.pdf" // Make sure resume.pdf is in public folder
+        href="/Rishabh-Video-Editor-Resume.pdf" // Make sure resume.pdf is in public folder
         download="Rishabh-Video-Editor-Resume.pdf"
         className="relative inline-flex items-center justify-center px-12 py-3 rounded-full bg-cyan-400 text-black font-medium hover:bg-cyan-300 hover:scale-105 transition duration-300"
         initial={{ opacity: 0 }}
