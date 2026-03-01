@@ -8,10 +8,9 @@ import "swiper/css/navigation";
 
 const projects = [
   {
-    video: "https://www.w3schools.com/html/mov_bbb.mp4",
+    video: "/1ST VDO .mp4",
   },
 ];
-
 const Projects = () => {
   const videoRefs = useRef([]);
 
