@@ -8,9 +8,11 @@ import "swiper/css/navigation";
 
 const projects = [
   {
-    video: "https://res.cloudinary.com/demo/video/upload/dog.mp4",
+    video:
+      "https://res.cloudinary.com/ddomtfwea/video/upload/v1772383352/2ND_VDO_1_js7yko.mp4",
   },
 ];
+
 const Projects = () => {
   const videoRefs = useRef([]);
 
@@ -34,7 +36,7 @@ const Projects = () => {
     if (!video) return;
 
     video.controls = true;
-    video.muted = false; // 🔊 Sound ON
+    video.muted = false;
     video.play();
 
     if (video.requestFullscreen) {
@@ -49,28 +51,39 @@ const Projects = () => {
     if (!video) return;
 
     if (!document.fullscreenElement) {
-      video.muted = true; // 🔇 Sound OFF when exit
+      video.muted = true;
       video.controls = false;
     }
   };
 
   return (
-    <section id="projects" className="relative py-24 bg-[#050c0f] overflow-hidden">
-      <div className="relative max-w-[950px] mx-auto z-10">
+    <section
+      id="projects"
+      className="relative py-24 bg-[#050c0f] overflow-hidden"
+    >
+      <div className="relative w-full max-w-[950px] mx-auto px-4 z-10">
         <Swiper
           modules={[EffectCoverflow, Navigation, Autoplay]}
           effect="coverflow"
-          centeredSlides
-          loop
+          centeredSlides={true}
+          loop={true}
           slidesPerView={1}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
-          navigation
+          navigation={true}
           onSlideChange={handleSlideChange}
           onSwiper={(swiper) => handleSlideChange(swiper)}
+          breakpoints={{
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 1 },
+            1024: { slidesPerView: 1 },
+          }}
         >
           {projects.map((p, i) => (
-            <SwiperSlide key={i} className="flex justify-center">
-              <div className="relative w-[320px] aspect-[9/16] cursor-pointer overflow-hidden rounded-xl">
+            <SwiperSlide
+              key={i}
+              className="flex justify-center items-center"
+            >
+              <div className="relative w-[85vw] max-w-[320px] aspect-[9/16] cursor-pointer overflow-hidden rounded-xl">
                 <video
                   ref={(el) => (videoRefs.current[i] = el)}
                   src={p.video}
@@ -79,9 +92,7 @@ const Projects = () => {
                   playsInline
                   autoPlay
                   onClick={() => handleVideoClick(i)}
-                  onFullscreenChange={() =>
-                    handleFullscreenChange(i)
-                  }
+                  onFullscreenChange={() => handleFullscreenChange(i)}
                   className="absolute inset-0 w-full h-full object-cover"
                 />
               </div>
