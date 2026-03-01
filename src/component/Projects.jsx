@@ -7,12 +7,12 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/navigation";
 
 const projects = [
-  { video: "/1ST VDO .mp4" },
-  { video: "/2ND VDO.mp4" },
-  { video: "/3RD VDO.mp4" },
-  { video: "/4RTH VDO.mp4" },
-  { video: "/5TH VDO.mp4" },
-  { video: "/VIP 2 (1).mp4" },
+  { video: "1ST VDO .mp4" },
+  { video: "2ND VDO.mp4" },
+  { video: "3RD VDO.mp4" },
+  { video: "4RTH VDO.mp4" },
+  { video: "5TH VDO.mp4" },
+  { video: "VIP 2 (1).mp4" },
 ];
 
 const Projects = () => {
